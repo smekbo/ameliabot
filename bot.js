@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const RichEmbed = require('discord.js').RichEmbed;
 const client = new Discord.Client();
 const rp = require('request-promise');
-const cheerio = require('cheerio');
 
 var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 var urlregex = new RegExp(expression);
