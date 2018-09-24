@@ -25,7 +25,6 @@ client.on('message', msg => {
         tumblrLink(link, msg);
       }
     }
-    
   }
 });
 
