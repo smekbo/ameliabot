@@ -18,11 +18,16 @@ client.on('message', msg => {
   // ONLY RESPOND TO OTHER USERS, DIPSHIT
   if (msg.author.id !== client.user.id){
     
-    // FIX LINKS
+    // URL ACTIONS
     if (msg.content.match(urlregex)){
-      var link = urlregex.exec(msg.content)[0];
-      if (link.includes("tumblr")){
-        tumblrLink(link, msg);
+      var url = urlregex.exec(msg.content)[0];
+      if (url.includes("tumblr") && !url.includes("media")){
+        tumblrLink(url, msg);
+      }
+      if (url.includes("twitter")){
+        if (msg.author.id === "87562842047279104"){
+          twitterLink(url, msg);
+        }
       }
     }
   }
@@ -55,7 +60,15 @@ function tumblrLink(url, msg){
         if (json.response.posts[0].type === "video"){
           attachments.push(json.response.posts[0].video_url);    
         }
-
+        if (json.response.posts[0].type === "text"){
+          var images = json.response.posts[0].body.split("<img");
+          images.shift();
+          images.forEach((img) => {
+            var image = img.split("\" data-orig")[0].replace("src=\"", "").replace(/^\s+|\s+$/g, '').replace("_540", "_1280");
+            attachments.push(image);
+          })
+        }        
+        
         const embed = new RichEmbed()
           .setTitle(blogname)
           .setColor(0xFF0000)
@@ -67,6 +80,10 @@ function tumblrLink(url, msg){
   .catch((err) => {
     console.log(err);
   })
+}
+
+function twitterLink(url, msg) {
+  console.log("Yo");
 }
 
 console.log("Loggin' in...");
