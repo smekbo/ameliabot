@@ -4,6 +4,8 @@ const rp = require('request-promise');
 const secrets = require("./secrets.js");
 const TUMBLR_API_KEY = secrets.TUMBLR_API_KEY()
 
+const MAX_IMAGES = 3;
+
 function fetch(url, msg) {
   const blog = url.substring(url.indexOf("//") + 2, url.indexOf(".tumblr.com"));
   const post = url.substring(url.indexOf("post/") + 5, url.lastIndexOf("/"));
@@ -55,6 +57,16 @@ function fetch(url, msg) {
         attachments.shift();
       }
 
+      if (attachments.length > MAX_IMAGES){
+        var remove = attachments.length - MAX_IMAGES;
+        var x = 0;
+        while (x < remove){
+          attachments.pop()
+          x = x+1;
+        }
+        summary = summary + "\n\n*( " + remove + " more images in post )*";
+      }
+    
       if (attachments.length !== 0){
         const embed = new RichEmbed()
           .setTitle(blogname)
