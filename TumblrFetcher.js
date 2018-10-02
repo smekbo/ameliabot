@@ -7,9 +7,11 @@ const TUMBLR_API_KEY = secrets.TUMBLR_API_KEY()
 const MAX_IMAGES = 3;
 
 function fetch(url, msg) {
-  const blog = url.substring(url.indexOf("//") + 2, url.indexOf(".tumblr.com"));
-  const post = url.substring(url.indexOf("post/") + 5, url.lastIndexOf("/"));
-  const endpoint = `https://api.tumblr.com/v2/blog/${blog}.tumblr.com/posts/text?api_key=${TUMBLR_API_KEY}&notes_info=true&id=${post}`;
+  var postRegex = new RegExp(/post\/([^\D]*)/gm);
+  var blogRegex = new RegExp(/(https*:\/\/)*(.*)\.tumblr.com/gi)
+  var post = postRegex.exec(url)[1];
+  var blog = blogRegex.exec(url)[2];
+  var endpoint = `https://api.tumblr.com/v2/blog/${blog}.tumblr.com/posts/text?api_key=${TUMBLR_API_KEY}&notes_info=true&id=${post}`;
 
   console.log(endpoint);
   
