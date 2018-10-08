@@ -25,29 +25,33 @@ function fetch(url, msg) {
     .then(($) => {
       var json = JSON.parse($.body);
 
+      var post = json.response.posts[0];
       var blogname = json.response.blog.name;
-      var summary = json.response.posts[0].summary;
+      var summary = post.summary;
+      var rating = json.meta.x_tumblr_content_rating;
       var attachments = [];
     
-      if (json.meta.x_tumblr_content_rating === "adult"){
+      // Try deleting the useless tumblr blurb embed you get 
+      //   when you post an adult link, if you have permission
+      if (rating === "adult"){
         msg.delete();
         summary = summary + "\n\n*Link posted by " + msg.author.username + "*";
       }    
     
-      if (json.response.posts[0].type === "photo") {
-        json.response.posts[0].photos.forEach(function(photo) {
+      if (post.type === "photo") {
+        post.photos.forEach(function(photo) {
           attachments.push(photo.original_size.url);
         });
       }
-      if (json.response.posts[0].type === "video") {
-        msg.channel.send(json.response.posts[0].video_url);
+      if (post.type === "video") {
+        msg.channel.send(post.video_url);
         msg.channel.send(new RichEmbed()
           .setTitle(blogname)
           .setColor(0xFF0000)
           .setDescription(summary));
       }
-      if (json.response.posts[0].type === "text") {
-        var images = json.response.posts[0].body.split("<img");
+      if (post.type === "text") {
+        var images = post.body.split("<img");
         images.shift();
         images.forEach((img) => {
           var image = img.split("\" data-orig")[0].replace("src=\"", "").replace(/^\s+|\s+$/g, '').replace("_540", "_1280");
@@ -55,7 +59,9 @@ function fetch(url, msg) {
         })
       }
 
-      if (json.meta.x_tumblr_content_rating !== "adult" && json.response.posts[0].type === "photo") {
+      // If it's a SFW post, remove the first attachment, 
+      //   since that will have been embedded by discord
+      if (rating !== "adult" && post.type !== "video") {
         attachments.shift();
       }
 
@@ -69,7 +75,8 @@ function fetch(url, msg) {
         summary = summary + "\n\n*( " + remove + " more images in post )*";
       }
     
-      if (attachments.length !== 0){
+      // Don't send anything if you don't have any attachments to embed.
+      if (( attachments.length > 0 )){
         const embed = new RichEmbed()
           .setTitle(blogname)
           .setColor(0xFF0000)
