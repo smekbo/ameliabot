@@ -34,8 +34,8 @@ function fetch(url, msg) {
       // Try deleting the useless tumblr blurb embed you get 
       //   when you post an adult link, if you have permission
       if (rating === "adult"){
-        msg.delete();
-        summary = summary + "\n\n*Link posted by " + msg.author.username + "*";
+        //msg.delete();
+        //summary = summary + "\n\n*Link posted by " + msg.author.username + "*";
       }    
     
       if (post.type === "photo") {
@@ -58,10 +58,15 @@ function fetch(url, msg) {
           attachments.push(image);
         })
       }
+      if (post.type === "audio") {
+        attachments.push(post.audio_url + ".mp3");
+      }
 
       // If it's a SFW post, remove the first attachment, 
       //   since that will have been embedded by discord
-      if (rating !== "adult" && post.type !== "video") {
+      //   ( it seems that discord fixed the nsfw posts
+      //     not being fetched, so I removed the nsfw exception )
+      if (post.type !== "video" && post.type !== "audio") {
         attachments.shift();
       }
 
