@@ -24,11 +24,7 @@ client.on('message', msg => {
     // BOB ACTIONS
     if (msg.author.id === "87562842047279104") {
       if (msg.content === 'ping') {
-        var guildlist = ""
-        client.guilds.forEach((guild) => {
-          guildlist = guild.name + " ";
-        })
-        msg.channel.send(guildlist);
+        msg.channel.send("@here");
       }
     }
     
@@ -46,7 +42,7 @@ client.on('message', msg => {
         }        
       }
       else {
-        msg.channel.send("🤐");
+        //msg.channel.send("🤐");
       }
     }
     
@@ -58,7 +54,7 @@ client.on('message', msg => {
       console.log("COMMAND: " + command + " " + params);
       var commandRegex = new RegExp(/!+/gm);
       if (command !== "" && !command.match(commandRegex)){
-        msg.channel.send("👏"); 
+        //msg.channel.send("👏"); 
       }
     }
   } // END don't talk to self

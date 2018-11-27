@@ -21,10 +21,10 @@ function fetch(url, msg) {
 
       if (attachments.length > 1){
         attachments.shift();
-        const embed = new RichEmbed()
-          .setTitle("(the other photos)")
-          .attachFiles(attachments);
-        msg.channel.send(embed);      
+//         const embed = new RichEmbed()
+//           .setTitle("(the other photos)")
+//           .attachFiles(attachments);
+        uploadSync(msg, attachments, 0);
       }  
     }
     catch (err) {
@@ -32,6 +32,19 @@ function fetch(url, msg) {
       console.log(err.message);
     }
   })
+}
+
+function uploadSync(msg, attachments, index){
+  if (index < attachments.length){
+    msg.channel.send({
+      files: [attachments[index]]
+    })
+    .then(function(value){
+      index = index +1;
+      uploadSync(msg, attachments, index);
+    })
+    .catch(console.error);  
+  }
 }
 
 module.exports = {
