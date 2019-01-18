@@ -6,27 +6,65 @@ const rp = require('request-promise');
 const tumblrFetcher = require('./TumblrFetcher.js');
 const twitterFetcher = require('./TwitterFetcher.js');
 const dice = require('./dice.js');
+const stats = require('./stats.js');
 
-var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+var secrets;
 
-const secrets = require("./secrets.js");
+try {
+  secrets = require(process.argv[2]);  
+}
+catch (e) {
+  throw "Bad secrets path, exiting...";
+}
+
 const BOT_KEY = secrets.BOT_KEY();
-
+var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
+var emojiRegex = new RegExp(/:([^\s]*):/gi);
 const COMMAND_SIGNS = ["!", "/"];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('messageReactionAdd', (msg, usr) =>{
+  var noMoji = new RegExp(/\w*/gi);
+  if (noMoji.exec(msg._emoji.name)[0] !== ""){
+    var emoji = [[usr.id, msg._emoji.name, msg.message.channel.guild.id, Date.now().toString()]];
+    stats.add.emoji(emoji);
+  }
+})
+
 client.on('message', msg => {
   // DON'T TALK TO YOURSELF
   if (msg.author.id !== client.user.id) {
+    
+    // STAT ACTIONS
+    //   Only run on certain servers for now
+    var guild = msg.channel.guild.name.toLowerCase();
+    if (guild.includes("vicar") || (guild.includes("bob") && msg.channel.name.includes("general"))){
+      if (msg.content.match(emojiRegex)) {
+        var emoji = [];
+        while((result = emojiRegex.exec(msg.content)) !== null) {
+          emoji.push([msg.author.id, result[1], msg.channel.guild.id, Date.now().toString()]);
+        }
+        stats.add.emoji(emoji)
+      }
+    }
     
     // BOB ACTIONS
     if (msg.author.id === "87562842047279104") {
       if (msg.content === 'ping') {
         msg.channel.send("@here");
       }
+      if (msg.content === "stats"){
+        stats.get.emoji(msg);
+      }
+      if (msg.content === "top"){
+        stats.get.top(msg, "ASC");
+      }
+      if (msg.content === "bot"){
+        stats.get.top(msg, "DESC");
+      }      
     }
     
     // URL ACTIONS
@@ -49,7 +87,6 @@ client.on('message', msg => {
     
     // COMMANDS
     if(COMMAND_SIGNS.indexOf(msg.content.substring(0,1)) > -1){
-      //msg.delete();
       var command = msg.content.split(" ")[0].substring(1);
       var params = msg.content.split(" ");
       var author = msg.author;

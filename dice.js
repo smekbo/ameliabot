@@ -43,7 +43,16 @@ function roll(params, msg){
     opIndex = opIndex + 1;
   })
 
-  msg.channel.send(msg.author + " rolls: " + TOTAL + " *[" + rollTracker.toString().replace("+","").replace(/,/g, " ").replace(/\+/g, "+ ") + "]*");
+  msg.delete();
+  if (isNaN(TOTAL)){
+    msg.channel.send("**" + msg.author.username + "** rolls their dice off the table \n*[bad input]*");
+  }
+  else{
+    msg.channel.send("**" + msg.author.username + "** rolls *" + diceString + "*:\n" + TOTAL + " *[" + rollTracker.toString().replace("+","").replace(/,/g, " ").replace(/\+/g, "+ ") + "]*");
+    if (TOTAL == 69){
+      msg.channel.send("*Nice*");
+    }    
+  }
 }
 
 module.exports = {
