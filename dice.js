@@ -1,4 +1,41 @@
-function roll(params, msg){
+function roll(params, msg, firstRun){
+  if (params.length === 0){
+    params[0] = 0;   
+  }
+  if (params[0].toString().match(/^\d*$/g) && firstRun){
+    var a = "";
+    msg.channel.fetchMessages({ limit: 50 })
+      .then(messages => {
+        var rollFound = false;
+        var i = 0;
+        messages.some((message, c) => {
+          if (message.content.includes(msg.author.username)){
+            if (i.toString() === params[0].toString()){
+              var r = /\*([^\*]*)\*:$/gm;
+              var x = r.exec(message.content);
+              try{
+                roll([x[1]], msg, false); 
+              }
+              catch (e){
+                console.log(e.message);
+              }
+              rollFound = true;
+              c = "stop";
+              return c === "stop";
+            }          
+            i = i+1;
+          }     
+        })
+      if (!rollFound){
+        msg.delete();
+        msg.channel.send("**" + msg.author.username + "**: Roll not found. Maybe try a lower index.");            
+      }
+      })      
+  }
+
+  if (params[0].toString().match(/^\d*$/g)){
+    return;
+  }
   var TOTAL = 0;
   var rollTracker = [];
   var diceString = "";
@@ -55,6 +92,18 @@ function roll(params, msg){
   }
 }
 
+function flip(msg){
+  var t = Math.round(Math.random() * (2 - 1) + 1);
+  if (t === 1){
+    msg.channel.send("**" + msg.author.username + "** flips a coin: *Heads*");
+  }
+  else {
+    msg.channel.send("**" + msg.author.username + "** flips a coin: *Tails*");
+  }
+  msg.delete();
+}
+
 module.exports = {
-  roll: roll
+  roll: roll,
+  flip: flip
 }
