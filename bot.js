@@ -20,7 +20,7 @@ catch (e) {
 const BOT_KEY = secrets.BOT_KEY();
 var urlRegex = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
 var emojiRegex = new RegExp(/:([^\s]*):/gi);
-const COMMAND_SIGNS = ["!", "/"];
+const COMMAND_SIGNS = ["!", "/", "."];
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -36,18 +36,21 @@ client.on('messageReactionAdd', (msg, usr) =>{
 
 client.on('message', msg => {
   // DON'T TALK TO YOURSELF
-  if (msg.author.id !== client.user.id) {
+  if (msg.author.id !== client.user.id && msg.guild !== null) {
     
     // STAT ACTIONS
     //   Only run on certain servers for now
-    var guild = msg.channel.guild.name.toLowerCase();
-    if (guild.includes("vicar") || (guild.includes("bob") && msg.channel.name.includes("general"))){
+    
+    if (msg.guild.name.includes("vicar") || (msg.guild.name.includes("bob") && msg.channel.name.includes("general"))){
       if (msg.content.match(emojiRegex)) {
         var emoji = [];
         while((result = emojiRegex.exec(msg.content)) !== null) {
           emoji.push([msg.author.id, result[1], msg.channel.guild.id, Date.now().toString()]);
         }
         stats.add.emoji(emoji)
+      }
+      if (msg.content.includes("fart")){
+        msg.edit(msg.content.replace("fart","**[CENSORED]**"));
       }
     }
     
@@ -64,6 +67,9 @@ client.on('message', msg => {
       }
       if (msg.content === "bot"){
         stats.get.top(msg, "DESC");
+      }
+      if (msg.content === "hist"){
+        stats.get.hist(msg);
       }      
     }
     
@@ -98,16 +104,19 @@ client.on('message', msg => {
         //msg.channel.send("👏"); 
       }
       
-      if (command === "roll"){
+      if (command === "roll" || command == "r"){
         if (msg.channel.name.includes("dice") || msg.guild.name.includes("bob")){
           try {
-            dice.roll(params, msg);
+            dice.roll(params, msg, true);
           }
           catch (error) {
             console.log(error);
             msg.channel.send("nope");
           }
         }
+      }
+      if (command === "coin"){
+        dice.flip(msg);
       }
       
     }

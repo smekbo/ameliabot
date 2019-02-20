@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3').verbose();
     db.run("CREATE TABLE emoji (user TEXT, name TEXT, server TEXT, timestamp TEXT)", [], (err) =>{
       if (err){
         //throw err;
-        console.log("Butts");
+        console.log("Database already exists");
       }
     });  
   }
@@ -63,12 +63,29 @@ function statEmoji(msg){
   db.close();
 }
 
+function statHist(msg){
+  var messageCount = 0;
+  msg.guild.channels.forEach( (channel) => {
+    if (channel.type === "text"){
+      channel.messages.forEach((message) => {
+        messageCount = messageCount + 1;
+      })
+      channel.fetchMessages({ limit: 100 })
+      .then(messages => {
+        console.log('Received messages ' + messages.size);
+      })
+    }
+  })
+  console.log(messageCount);
+}
+
 module.exports = {
   add: {
     emoji: addEmoji
   },
   get: {
     emoji: statEmoji,
-    top: statTop
+    top: statTop,
+    hist: statHist
   }
 }
