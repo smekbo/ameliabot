@@ -3,10 +3,14 @@ var sqlite3 = require('sqlite3').verbose();
   try {
     db.run("CREATE TABLE emoji (user TEXT, name TEXT, server TEXT, timestamp TEXT)", [], (err) =>{
       if (err){
-        //throw err;
-        console.log("Database already exists");
+        console.log(err.message);
       }
-    });  
+    });
+    db.run("CREATE TABLE links (user TEXT, link TEXT, server TEXT, timestamp TEXT)", [], (err) =>{
+      if (err){
+        console.log(err.message);
+      }
+    });    
   }
   catch (e){
     console.log("Database exists -- probably");
@@ -79,13 +83,53 @@ function statHist(msg){
   console.log(messageCount);
 }
 
+async function addLink(values, msg){
+  let db = new sqlite3.Database('serverstats.db');
+  console.log(values[1]);
+  let sql = 'SELECT * FROM links WHERE link like \'' + values[1] + '\'';
+  db.all(sql, [], (err, rows) => {
+    console.log(rows);
+    if (err) {
+      throw err;
+    }
+    if (rows.length > 0){
+      console.log("REPOST");
+    }
+    else {
+      sql = "INSERT INTO links VALUES (?,?,?,?)";
+
+      db.run(sql, values, (err) => {
+        if (err){
+          console.log(err);
+        }
+      });    
+    }
+  });
+  db.close();
+}
+
+function checkLink(link){
+  let db = new sqlite3.Database('serverstats.db');
+  try{
+  
+  }
+  catch (e){
+    console.log(e.message);
+    return {repost: true, result: []};
+  }
+}
+
 module.exports = {
   add: {
-    emoji: addEmoji
+    emoji: addEmoji,
+    link: addLink
   },
   get: {
     emoji: statEmoji,
     top: statTop,
     hist: statHist
+  },
+  check: {
+    link: checkLink
   }
 }

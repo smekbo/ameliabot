@@ -49,9 +49,6 @@ client.on('message', msg => {
         }
         stats.add.emoji(emoji)
       }
-      if (msg.content.includes("fart")){
-        msg.edit(msg.content.replace("fart","**[CENSORED]**"));
-      }
     }
     
     // BOB ACTIONS
@@ -76,6 +73,11 @@ client.on('message', msg => {
     // URL ACTIONS
     if (msg.content.match(urlRegex)) {
       var url = urlRegex.exec(msg.content)[0];
+      
+      if (msg.guild.name.includes("vicar") || (msg.guild.name.includes("bob") && msg.channel.name.includes("general"))){
+        var link = [msg.author.id, url, msg.channel.guild.id, Date.now().toString()];
+        stats.add.link(link);
+      }
       
       // Check if you're supposed to be ignoring this link
       if (msg.content.charAt(msg.content.indexOf(url)-1) != '<'){
