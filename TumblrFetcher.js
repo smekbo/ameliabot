@@ -1,10 +1,27 @@
 const RichEmbed = require('discord.js').RichEmbed;
 const rp = require('request-promise');
 
-const secrets = require("./secrets.js");
-const TUMBLR_API_KEY = secrets.TUMBLR_API_KEY()
+//const secrets = require("./secrets.js");
+var TUMBLR_API_KEY = "";
 
 const MAX_IMAGES = 3;
+
+function setup(secrets){
+  TUMBLR_API_KEY = secrets.TUMBLR_API_KEY();
+}
+
+function uploadSync(msg, attachments, index){
+  if (index < attachments.length){
+    msg.channel.send({
+      files: [attachments[index]]
+    })
+    .then(function(value){
+      index = index +1;
+      uploadSync(msg, attachments, index);
+    })
+    .catch(console.error);  
+  }
+}
 
 function fetch(url, msg) {
   var postRegex = new RegExp(/post\/([^\D]*)/gm);
@@ -82,12 +99,17 @@ function fetch(url, msg) {
     
       // Don't send anything if you don't have any attachments to embed.
       if (( attachments.length > 0 )){
-        const embed = new RichEmbed()
-          .setTitle(blogname)
-          .setColor(0xFF0000)
-          .setDescription(summary)
-          .attachFiles(attachments);
-        msg.channel.send(embed);        
+        if (post.type == "photo"){
+          uploadSync(msg, attachments, 0);
+        }
+        else{
+          const embed = new RichEmbed()
+            .setTitle(blogname)
+            .setColor(0xFF0000)
+            .setDescription(summary)
+            .attachFiles(attachments);
+          msg.channel.send(embed);        
+        }
       }
     })
     .catch((err) => {
@@ -98,5 +120,6 @@ function fetch(url, msg) {
 }
 
 module.exports = {
+  setup: setup,
   fetch: fetch
 }

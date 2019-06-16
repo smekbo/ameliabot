@@ -11,7 +11,8 @@ const stats = require('./stats.js');
 var secrets;
 
 try {
-  secrets = require(process.argv[2]);  
+  secrets = require(process.argv[2]);
+  tumblrFetcher.setup(secrets);
 }
 catch (e) {
   throw "Bad secrets path, exiting...";
@@ -85,7 +86,7 @@ client.on('message', msg => {
           tumblrFetcher.fetch(url, msg);
         }
         if (url.includes("twitter")) {
-          twitterFetcher.fetch(url, msg);
+          twitterFetcher.fetch(url, msg, secrets);
         }        
       }
       else {

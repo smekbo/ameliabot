@@ -1,8 +1,7 @@
 const Twitter = require('twitter');
 const RichEmbed = require('discord.js').RichEmbed;
-const secrets = require("./secrets.js");
 
-function fetch(url, msg) {
+function fetch(url, msg, secrets) {
   var twitter = new Twitter({
     consumer_key: secrets.TWITTER_CK(),
     consumer_secret: secrets.TWITTER_CS(),
