@@ -10,16 +10,21 @@ function setup(secrets){
   TUMBLR_API_KEY = secrets.TUMBLR_API_KEY();
 }
 
-function uploadSync(msg, attachments, index){
+function uploadSync(msg, attachments, summary, index){
   if (index < attachments.length){
     msg.channel.send({
       files: [attachments[index]]
     })
     .then(function(value){
       index = index +1;
-      uploadSync(msg, attachments, index);
+      uploadSync(msg, attachments, summary, index);
     })
-    .catch(console.error);  
+    .catch(console.error);
+  }
+  if (index == attachments.length - 1){
+    const embed = new RichEmbed()
+      .setDescription(summary);
+    msg.channel.send(embed);         
   }
 }
 
@@ -100,7 +105,7 @@ function fetch(url, msg) {
       // Don't send anything if you don't have any attachments to embed.
       if (( attachments.length > 0 )){
         if (post.type == "photo"){
-          uploadSync(msg, attachments, 0);
+          uploadSync(msg, attachments, summary, 0);
         }
         else{
           const embed = new RichEmbed()

@@ -6,7 +6,7 @@ const rp = require('request-promise');
 const tumblrFetcher = require('./TumblrFetcher.js');
 const twitterFetcher = require('./TwitterFetcher.js');
 const dice = require('./dice.js');
-const stats = require('./stats.js');
+//const stats = require('./stats.js');
 
 var secrets;
 
@@ -31,7 +31,7 @@ client.on('messageReactionAdd', (msg, usr) =>{
   var noMoji = new RegExp(/\w*/gi);
   if (noMoji.exec(msg._emoji.name)[0] !== ""){
     var emoji = [[usr.id, msg._emoji.name, msg.message.channel.guild.id, Date.now().toString()]];
-    stats.add.emoji(emoji);
+    //stats.add.emoji(emoji);
   }
 })
 
@@ -48,7 +48,7 @@ client.on('message', msg => {
         while((result = emojiRegex.exec(msg.content)) !== null) {
           emoji.push([msg.author.id, result[1], msg.channel.guild.id, Date.now().toString()]);
         }
-        stats.add.emoji(emoji)
+        //stats.add.emoji(emoji)
       }
     }
     
@@ -77,7 +77,7 @@ client.on('message', msg => {
       
       if (msg.guild.name.includes("vicar") || (msg.guild.name.includes("bob") && msg.channel.name.includes("general"))){
         var link = [msg.author.id, url, msg.channel.guild.id, Date.now().toString()];
-        stats.add.link(link);
+        //stats.add.link(link);
       }
       
       // Check if you're supposed to be ignoring this link
@@ -85,9 +85,9 @@ client.on('message', msg => {
         if (url.includes("tumblr") && !url.includes("media") && url.includes("post")) {
           tumblrFetcher.fetch(url, msg);
         }
-        if (url.includes("twitter")) {
-          twitterFetcher.fetch(url, msg, secrets);
-        }        
+//         if (url.includes("twitter")) {
+//           twitterFetcher.fetch(url, msg, secrets);
+//         }        
       }
       else {
         //msg.channel.send("🤐");

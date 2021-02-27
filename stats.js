@@ -1,4 +1,4 @@
-var sqlite3 = require('sqlite3').verbose();
+// var sqlite3 = require('sqlite3').verbose();
   let db = new sqlite3.Database('serverstats.db');
   try {
     db.run("CREATE TABLE emoji (user TEXT, name TEXT, server TEXT, timestamp TEXT)", [], (err) =>{
