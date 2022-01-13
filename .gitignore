@@ -63,3 +63,4 @@ typings/
 secrets.js
 secrets.test.js
 serverstats.db
+config.json
