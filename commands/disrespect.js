@@ -21,7 +21,8 @@ function disrespect(){
         "I complained a lot today. But it's not my fault.",
         "The fact that I have a $300,000 PC that does nothing against aim assist blows my mind.",
         "Don’t be a chubby cheeked loser like Greg. Get your @MountainDew @GameFuel Dual 2XP like the 2 Time Champion.",
-        "Gaming at its finest... me."
+        "Gaming at its finest... me.",
+        "You are not allowed to drink battery acid"
     ];
 
     return quotes[getRandomInt(quotes.length -1)];
