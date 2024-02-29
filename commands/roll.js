@@ -3,17 +3,20 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 function roll(diceString, user){
     var TOTAL = 0;
     var rollTracker = [];
-    var operands = diceString.split(/[\+-]/);
+    var justRolls = [];
+    var operands = diceString.split(/[\+\-\*]/);
     var operators = [];
-    operators = operators.concat(diceString.match(/[\+-]/g));
+    operators = operators.concat(diceString.match(/[\+\-\*]/g));
     operators.unshift("+"); 
     var opIndex = 0;
+    var multi_bonus = 0
+    var multi_bonus_flag = false
   
-    operands.forEach( (o) => {
-      if (o.includes("d")){
-        var dice_num = o.split("d")[0];
-        for (var d = 0; d < dice_num; d++){
-          var dice_val = o.split("d")[1];
+    operands.forEach( (operand) => {
+      if (operand.includes("d")){
+        var dice_num = operand.split("d")[0];
+        for (var d = 0; d < dice_num; d++){  
+          var dice_val = operand.split("d")[1];
           var roll = Math.round(Math.random() * (dice_val - 1) + 1);
           if (operators[opIndex] === "+"){
             TOTAL = TOTAL + roll;
@@ -22,21 +25,29 @@ function roll(diceString, user){
             TOTAL = TOTAL - roll;
           }
           if (dice_val === roll.toString()){
-            rollTracker.push(operators[opIndex] + roll + ":boom:");   
+            rollTracker.push(` ${operators[opIndex]}**${roll}** :boom:`);
+            justRolls.push(roll)
           }
           else{
-            rollTracker.push(operators[opIndex] + roll);
+            rollTracker.push(` ${operators[opIndex]}**${roll}**`);
+            justRolls.push(roll)
           }
         }
       }
       else {
         if (operators[opIndex] === "+" || opIndex === -1){
-          TOTAL = TOTAL + parseInt(o);
+          TOTAL = TOTAL + parseInt(operand);
+          rollTracker.push(`${operators[opIndex]} ${parseInt(operand)}`);
+        }
+        else if (operators[opIndex] === "*") {
+          multi_bonus_flag = true
+          multi_bonus = parseInt(operand);
+          TOTAL = TOTAL + (multi_bonus * rollTracker.length)
         }
         else {
-          TOTAL = TOTAL - parseInt(o);
+          TOTAL = TOTAL - parseInt(operand);
+          rollTracker.push(`${operators[opIndex]} ${parseInt(operand)}`);
         }
-        rollTracker.push(operators[opIndex] + parseInt(o));
       }
       opIndex = opIndex + 1;
     })
@@ -47,7 +58,16 @@ function roll(diceString, user){
       result = `**${user}** rolls their dice off the table \n*[bad input]*`;
     }
     else{
-      result = `**${user}** rolls ${diceString}: \n ${TOTAL} *[${rollTracker.toString().replace("+","").replace(/,/g, " ").replace(/\+/g, "+ ")}]*`;
+      if (multi_bonus_flag){
+        result = `**${user}** rolls \`${diceString}\`: \n[**${TOTAL}**]\n`
+        for (var i = 0; i < rollTracker.length; i++){
+          var rollSum = parseInt(justRolls[i]) + parseInt(multi_bonus)
+          result = result + `${rollSum} \*( **${justRolls[i]}** + ${multi_bonus} )\*\n`
+        }        
+      }
+      else{
+        result = `**${user}** rolls \`${diceString}\`: \n ${TOTAL} *[${rollTracker.toString().replace("+","").replace(/,/g, " ").replace(/\+/g, "+ ")}]*`;
+      }
       //msg.channel.send("**" + msg.author.username + "** rolls *" + diceString + "*:\n" + TOTAL + " *[" + rollTracker.toString().replace("+","").replace(/,/g, " ").replace(/\+/g, "+ ") + "]*");
       if (TOTAL == 69){
         result = result + `\n*(nice)*`;
