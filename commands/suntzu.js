@@ -1,7 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
+let rand_hist = [];
+const rand_histnum = 1;
+
 function suntzu(){
-    quotes = [
+	quotes = [
         "You are not allowed to drink battery acid",
         "wow big bat ears yum yum a meal for me?",
         "when are they adding the god damn NURGLINGS!!",
@@ -105,12 +108,27 @@ function suntzu(){
         "wear a clown hat and also make your topology seen to the world",
         "God could read your mind so the only reason he would turn you into a horse was because he thinks you deserve to suffer"
     ];
+	
+	// rolls until it finds a number not in the random history 
+	let to_line = 0;
+	let line_in_hist = true;
+	while (line_in_hist) {
+		to_line = getRandomInt(quotes.length - 1);
+		line_in_hist = rand_hist.includes(to_line);
+	}
 
-    return quotes[getRandomInt(quotes.length -1)];
+	// updates random history with rolls
+	if (rand_hist.length < rand_histnum) { rand_hist.push(to_line) } 
+	else {
+		rand_hist.splice(0,1);
+		rand_hist.push(to_line);
+	}
+	
+    return quotes[to_line];
 }
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return Math.round(Math.random() * max);
   }
 
 module.exports = {
