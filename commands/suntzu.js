@@ -106,7 +106,7 @@ function suntzu(){
         "wear a clown hat and also make your topology seen to the world",
         "God could read your mind so the only reason he would turn you into a horse was because he thinks you deserve to suffer",
 		"White people don't tell you to kill yourself anymore, they just say you look like doomguy 2016",
-		"I will only answer if you provide me with a lust provoking image"
+		"I will only answer if you provide me with a lust provoking image",
 		"Why not try extracting some bitches from the club",
 		"it could be worse i couldve bought the $50 kirby amiibo",
 		"You're going to get all of my micro plastics",
