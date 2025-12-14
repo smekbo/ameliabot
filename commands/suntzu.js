@@ -122,7 +122,7 @@ function suntzu(){
 		"I think they should replace every instance of special organ on that site with boobs",
 		"Waitor? Please call me the f slur",
 		"you people are too used to comfort",
-		"Every time my cat sucks my finger, it sucks away one of my precious memories.  Now I can't even remember my mother's face.".
+		"Every time my cat sucks my finger, it sucks away one of my precious memories.  Now I can't even remember my mother's face.",
 		"I hate how quickly I drink drinks like aw man I wanted to still be drinking that",
 		"Friendship City Unlimited",
 		"you will be made to say peepee poopoo and like it",
