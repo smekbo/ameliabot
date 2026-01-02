@@ -196,7 +196,36 @@ function suntzu(){
 		"I am.. le assaultur... de sexualle...",
 		"Bro still has hair?  low testosterone.",
 		"The noble eagle hunts most cruelly.  If one is not the Hunter.  but the dodent.",
-		"please lord send upon me a fertile yinglet female ready to breed"
+		"please lord send upon me a fertile yinglet female ready to breed",
+		"I am an unironic enjoyer of the weapons breaking and being unfixable",
+		"Gettin marged up at 1 pm on a wedmesday",
+		"he thinks hes using his ancient white powers to create 3d guns no one has ever experienced before",
+		"I spent it all on racist lizards",
+		"I want people to physically touch grass because it makes me a little itchy and i want them to be uncomfortable in a minor way",
+		"explains the brain damage And the big dent on my head",
+		"Good luck getting through my health pool with your brain beam idiot",
+		"Sorry man im out of it. Stayed up pretty late moaning at the moan grave last night",
+		"Quest objective: Jerk off big men's penis - 0/4",
+		"I always include a bit of obscure knowledge in my heaters to edutain the moronic masses",
+		"lets whitewash pomni",
+		"It's not even an ass-blast, it's like, a sad pathetic shit.",
+		"look at a fucking clock you timecel",
+		"It's probably for meat",
+		"if i force myself to not think about how disgusting they were i can continue to eat burgers",
+		"i think i just fucking saw santa dude",
+		"Saturn devouring his stupid chud son that he hates",
+		"I have a kind heart and do not like to see suffering",
+		"are you saying id bite a hooker and die from cocaine?",
+		"if i had money to fund a show, id angle invest in like the worst most garbage thing ever and force it to be on tv for decades to the point its just forever in the cultural background forever",
+		"cheetahs really do this shit all the time",
+		"SHE IS NOT BOUNCING ON IT!!!! SHE IS RIPPING IT CLEAN OFF HELPP!!!! HELPPPPP!!!!!!!",
+		"AHHHHHH!!! Im going FUCKING inSANE!!!  AAAAHHHHH!!!",
+		"you just don't appreciate the miracle of birth",
+		"I wish i had a weird kink with a cute backstory smh",
+		"Yinglet Mr. Bean would go pretty hard I think",
+		"just as the sword gave way to the gun, the gun gave way to the choke slam"
+		
+		
 		
 		
 		
