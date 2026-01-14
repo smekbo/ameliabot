@@ -240,7 +240,20 @@ function suntzu(){
 		"The blade glows blue when hot orc babes in your area are ready to FUCK",
 		"I can hear a malformed theme for this guy in my brain",
 		"brb this is weird",
-		"where the fuck do these rocks keep coming from"
+		"where the fuck do these rocks keep coming from",
+		"I can put her in this and give her the white girl normal",
+		"thats what people do to tourists, feed them glue",
+		"This guy knows his cones and the weight and balance associated with a well placed cream",
+		"I can perceive in my minds eye the sort of person yhat sees 7.99 as five bucks but i would not consider them wise",
+		"you are scrumbus right",
+		"unfortunatley the sergal is the root of all the seams so it must be removed",
+		"apparently she's just having a nap and doesn't actually attack you directly",
+		"lets eat her shed",
+		"we've never had this technology before...",
+		"wheres her shotgun penis",
+		"need one o' these in my backyard",
+		""
+		
 		
 		
 		
