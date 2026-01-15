@@ -138,7 +138,18 @@ function descriptor(){
 		"goofy",
 		"topless",
 		"trans",
-		"sharp-toothed"
+		"sharp-toothed",
+		"well-endowed",
+		"lanky",
+		"bound",
+		"sappy",
+		"gleeful",
+		"flawless",
+		"stupid",
+		"ditzy",
+		"p-shaped",
+		"big bottomed",
+		"ridiculous"
 		
     ]
 
@@ -183,7 +194,6 @@ function noun(){
 		"aeromorph",
 		"fish",
 		"snail",
-		"slime",
 		"puppet",
 		"pokemon",
 		"chimera",
@@ -246,6 +256,8 @@ function noun(){
 		"object-headed",
 		"pumpkin-headed",
 		"dullahan",
+		"skull-head",
+		"skog",
 		"scarecrow",
 		"jackal",
 		"lynx",
@@ -256,7 +268,14 @@ function noun(){
 		"sergal",
 		"pig",
 		"frog",
-		"anubis"
+		"anubis",
+		"borzoi",
+		"tankgirl",
+		"scarab",
+		"monster",
+		"lich",
+		"ghoul",
+		"tentacled thing"
 		
 	]
 	return n[getRandomInt(n.length -1)];
@@ -315,7 +334,7 @@ function job(){
 		"chef",
 		"drunkard",
 		"barmaid",
-		"hooters server",
+		"hooters waiter/waitress",
 		"farmer",
 		"officeworker",
 		"brawler",
@@ -357,7 +376,7 @@ function job(){
 		"entertainer",
 		"athlete",
 		"alcolyte",
-		"warden",
+		"ward",
 		"fanatic",
 		"bandit",
 		"merchant",
@@ -368,10 +387,35 @@ function job(){
 		"captain",
 		"actor/actress",
 		"blacksmith",
-		"monsterhunter",
+		"monster-hunter",
 		"killer",
 		"werewolf",
-		"explorer"
+		"explorer",
+		"reporter",
+		"swordsman",
+		"abberation",
+		"sludge-sifter",
+		"city guard",
+		"beekeeper",
+		"acrobat",
+		"contortionist",
+		"snake-oil salesman",
+		"con artist",
+		"socialite",
+		"with big naturals",
+		"with a flat chest",
+		"wearing bondage gear",
+		"wearing pilot goggles",
+		"with very long hair",
+		"with a bobcut",
+		"with a peaceful vibe",
+		"with visible prosthesis",
+		"wearing a kimono",
+		"wearing a suit",
+		"in a meme pose",
+		"wearing a desertpunk outfit",
+		"wearing a swimsuit",
+		"wearing a cool mask"
 		
 		
 		
@@ -1774,7 +1818,11 @@ function prefix(){
         "What about a",
         "You could draw a",
         "How about a",
-		"Draw a"
+		"Draw a",
+		"Draw some kind of ",
+		"Hmm... a",
+		"Let's see a",
+		"Perhaps a"
     ];
 
     return prefixes[getRandomInt(prefixes.length -1)];

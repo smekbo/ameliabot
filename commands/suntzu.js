@@ -64,8 +64,6 @@ function suntzu(){
         "I was just flicking the god switch on and off on my god laser pointed at her house",
         "atted the wrong person award",
         "I need my coitus silver to live",
-        "im trying to find a good reference image of the ship from titan A.E. for you",
-        "not as cool as the ships from titan A.E.",
         "look away this slutula is too much for you to handle",
         "you cannot get death crystals from old men, death crystals only appear in dead things",
         "bob kill him",
@@ -229,13 +227,10 @@ function suntzu(){
 		"Partner got this grab bag mini painting and they removed his dick",
 		"Those could have been MY imaginary social media numbers!!!",
 		"the incel gamer can only destroy while the dog boob modder creates",
-		"We have to ask chat",
 		"if I'm buying Gutter World I'm not gonna complain about thonged up demon lady choking out goons with her thighs ",
-		"Would you still like me if I was a hairbold",
 		"brain can't rot if it's already a soup of decayed matter",
 		"they're calling it the slavic melatonin",
 		"opens her up, only sees gutts (not in a gore way) (in a normal not weird way)",
-		"you should make a character named fournatha",
 		"you wouldnt be able to sleep either if you heard a cum sucking ghoul running up the stairs towards your room",
 		"The blade glows blue when hot orc babes in your area are ready to FUCK",
 		"I can hear a malformed theme for this guy in my brain",
@@ -245,15 +240,18 @@ function suntzu(){
 		"thats what people do to tourists, feed them glue",
 		"This guy knows his cones and the weight and balance associated with a well placed cream",
 		"I can perceive in my minds eye the sort of person yhat sees 7.99 as five bucks but i would not consider them wise",
-		"you are scrumbus right",
 		"unfortunatley the sergal is the root of all the seams so it must be removed",
 		"apparently she's just having a nap and doesn't actually attack you directly",
 		"lets eat her shed",
 		"we've never had this technology before...",
 		"wheres her shotgun penis",
 		"need one o' these in my backyard",
-		""
-		
+		"I won't give you frostbite for your insolence",
+		"bro im gonna reverse bike cuck you (good)",
+		"id suck a bald spot on her face, thats for sure",
+		"The grocery cart is actually for my huge dong. The swinging metal grate in the back for it to fit through",
+		"look at this with your special eyes and your special nurons",
+		"you havent been growing out your leg hair?"
 		
 		
 		
