@@ -251,7 +251,21 @@ function suntzu(){
 		"id suck a bald spot on her face, thats for sure",
 		"The grocery cart is actually for my huge dong. The swinging metal grate in the back for it to fit through",
 		"look at this with your special eyes and your special nurons",
-		"you havent been growing out your leg hair?"
+		"you havent been growing out your leg hair?",
+		"go ahead and blast your hogs, that's not what we're talking about.",
+		"who will I torture with my racist slopmeals now",
+		"If I got on a horse like that I’d dislocate my shoulder and have my skull caved in",
+		"I see it in my dreams, her wild elf pubes",
+		"wow, racist and she cant cook, the full package",
+		"the orcs fed me their horrible oil this morning. Didnt used to be this way",
+		"can you IMAGINE following a scurrying little man for weeks",
+		"I was gonna recommend cigarettes",
+		"i am a massive beercel and I still think no beer is worth this",
+		"He believed todds lies...",
+		"geoff keighly century of humiliation",
+		"oh yeah, its looking time",
+		"whoa... thats... your skin??",
+		"bro... *cries and pukes a little*"
 		
 		
 		
