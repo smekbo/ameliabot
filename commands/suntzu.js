@@ -265,8 +265,10 @@ function suntzu(){
 		"geoff keighly century of humiliation",
 		"oh yeah, its looking time",
 		"whoa... thats... your skin??",
-		"bro... *cries and pukes a little*"
-		
+		"bro... *cries and pukes a little*",
+		"What a sultry bitch with her slutty shadows",
+		"its like in the Victorian times women could be acquitted of crimes because of their female brain",
+		"furries? yuckkkyyyy"
 		
 		
 		
