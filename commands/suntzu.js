@@ -335,8 +335,8 @@ function suntzu(){
 		"I desperately need a reliable way to generate yellow",
 		"My dad loves fucking that bigot pussy",
 		"also when you are old you start seeing phantoms and evil perverted demon penises in your peripheral vision",
-		"we bonded over monstrous foreskin"
-		
+		"we bonded over monstrous foreskin",
+		"I'd totally doft dradge"
 		
 		
 		
