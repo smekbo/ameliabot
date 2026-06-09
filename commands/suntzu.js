@@ -332,9 +332,10 @@ function suntzu(){
 		"How do I keep my stupid lemonade jars from being filled up with ground water when I splash around in them puddles?",
 		"bro, this guy airmogged me with his huge thick airstream",
 		"I mean I had good sleep even despite getting cursed by asshole sam",
-		"I desperately need a reliable way to generate yellow"
-		
-		
+		"I desperately need a reliable way to generate yellow",
+		"My dad loves fucking that bigot pussy",
+		"also when you are old you start seeing phantoms and evil perverted demon penises in your peripheral vision",
+		"we bonded over monstrous foreskin"
 		
 		
 		
