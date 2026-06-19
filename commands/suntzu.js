@@ -336,8 +336,8 @@ function suntzu(){
 		"My dad loves fucking that bigot pussy",
 		"also when you are old you start seeing phantoms and evil perverted demon penises in your peripheral vision",
 		"we bonded over monstrous foreskin",
-		"I'd totally doft dradge"
-		
+		"I'd totally doft dradge",
+		"foreskinmogging all you chopped cuttoids"
 		
 		
 		
