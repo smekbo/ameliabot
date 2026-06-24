@@ -361,7 +361,8 @@ function suntzu(){
 		"love this guy. this will be me someday",
 		"its called amazing digital humor, libtard",
 		"millions of years to optimize leafcrunching at this level",
-		"are you born a sinkdog or is it like some kind of stroggification process"
+		"are you born a sinkdog or is it like some kind of stroggification process",
+		"foreskinmogging all you chopped cuttoids"
 		
 		
 		
