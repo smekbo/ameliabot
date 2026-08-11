@@ -363,7 +363,11 @@ function suntzu(){
 		"millions of years to optimize leafcrunching at this level",
 		"are you born a sinkdog or is it like some kind of stroggification process",
 		"foreskinmogging all you chopped cuttoids",
-		"vagina bone genocide"
+		"vagina bone genocide",
+		"imagine them grinding their big soft ball on your doingus",
+		"I use my powers of therapy to become the mentally healthiest person to ever have lvied",
+		"Whenever these big ball assed posthuman synthetic organisms fall on the ground and get confused and swirly eyed I have to look away from the screen because Im blushing so hard",
+		"going to bed mad"
 		
 		
 		
