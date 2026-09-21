@@ -369,7 +369,8 @@ function suntzu(){
 		"Whenever these big ball assed posthuman synthetic organisms fall on the ground and get confused and swirly eyed I have to look away from the screen because Im blushing so hard",
 		"going to bed mad",
 		"like if big rocks fall on you and you die that makes sense that's like one thing that logically follows from another",
-		"indie bitches fucking hate my man Euclid"
+		"indie bitches fucking hate my man Euclid",
+		"I imagine I was a ruthless slavedriver in another life, its why im so punished in this one"
 		
 		
 		
