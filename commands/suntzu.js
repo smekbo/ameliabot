@@ -20,7 +20,6 @@ function suntzu(){
         "These words will make your balls cease function for a full 24 hours or your money back",
         "Oh gee I sure hope no horny werewolf catches me",
         "I intercept this dog because it is good and now it's for me",
-        "a toe ring is like the choker of the foot",
 	    "I dont think the body of a child would stop a nuclear missile",
         "AAAHHH LOOOK OUT AAAHH",
         "your vile spire is looking quite putrid today",
