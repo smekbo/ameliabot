@@ -370,8 +370,8 @@ function suntzu(){
 		"going to bed mad",
 		"like if big rocks fall on you and you die that makes sense that's like one thing that logically follows from another",
 		"indie bitches fucking hate my man Euclid",
-		"I imagine I was a ruthless slavedriver in another life, its why im so punished in this one"
-		
+		"I imagine I was a ruthless slavedriver in another life, its why im so punished in this one",
+		"[the wet rasping sound of a creeping cum sucking ghoul]"
 		
 		
 		
