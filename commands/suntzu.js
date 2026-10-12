@@ -371,7 +371,8 @@ function suntzu(){
 		"indie bitches fucking hate my man Euclid",
 		"I imagine I was a ruthless slavedriver in another life, its why im so punished in this one",
 		"[the wet rasping sound of a creeping cum sucking ghoul]",
-		"If I played a shooter game for 30 minutes and only got 4 kills I would shove a stick of dynamite up my ass and light it"
+		"If I played a shooter game for 30 minutes and only got 4 kills I would shove a stick of dynamite up my ass and light it",
+		"IM ASKING IF RESHIRAM WAS LIKE 'I want to smell your male feet after a long day of work and suck on your toes' would you still love her?"
 		
 		
 		
