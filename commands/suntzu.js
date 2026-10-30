@@ -374,14 +374,8 @@ function suntzu(){
 		"If I played a shooter game for 30 minutes and only got 4 kills I would shove a stick of dynamite up my ass and light it",
 		"IM ASKING IF RESHIRAM WAS LIKE 'I want to smell your male feet after a long day of work and suck on your toes' would you still love her?",
 		"using my extremely large empathic forebrain to psychically rotate how difficult masturbation is for the circumsized",
-		"In american schools its leveling up your become a subliterate brain raped moron skill"
-		
-		
-		
-		
-		
-		
-		
+		"In american schools its leveling up your become a subliterate brain raped moron skill",
+		"what manner of foidish nonsense deigns to whine in my ears?"		
     ];
 	
 	// rolls until it finds a number not in the random history 
